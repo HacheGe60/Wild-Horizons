@@ -12,6 +12,9 @@
   },
   "license": "ISC",
   "author": "LoloDev",
-  "type": "commonjs",
-  "main": "server.js"
+  "type": "module",
+  "main": "server.js",
+  "scripts" : {
+    "start": "node server.js"
+  }
 }
