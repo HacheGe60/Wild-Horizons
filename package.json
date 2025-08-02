@@ -1,20 +1,19 @@
 {
   "name": "wild-horizons",
   "version": "1.0.0",
-  "description": "a dataset of the planet’s most interesting places",
-  "homepage": "https://github.com/HacheGe60/Wild-Horizons#readme",
-  "bugs": {
-    "url": "https://github.com/HacheGe60/Wild-Horizons/issues"
+  "description": "a dataset of the planet's most interesting places",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HacheGe60/Wild-Horizons.git"
   },
-  "license": "ISC",
   "author": "LoloDev",
-  "type": "module",
-  "main": "server.js",
-  "scripts" : {
-    "start": "node server.js"
-  }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HacheGe60/Wild-Horizons/issues"
+  },
+  "homepage": "https://github.com/HacheGe60/Wild-Horizons#readme"
 }
