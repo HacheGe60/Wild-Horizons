@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/HacheGe60/Wild-Horizons/issues"
   },
-  "homepage": "https://github.com/HacheGe60/Wild-Horizons#readme"
+  "homepage": "https://github.com/HacheGe60/Wild-Horizons#readme",
+  "type": "module"
 }
