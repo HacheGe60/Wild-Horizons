@@ -1,6 +1,7 @@
 import http from 'node:http';
 import { getDataFromDB } from './database/db.js';
 import { sendJSONResponse } from './utils/sendJSONResponse.js';
+import { sendFilteredData } from './utils/sendFilteredData.js';
 
 
 const PORT = 8000;
@@ -11,9 +12,11 @@ const server = http.createServer(async (req, res) => {
     if (req.url === '/api' && req.method === 'GET') {
         sendJSONResponse(res, 200, destinations);
     } else if (req.url.startsWith('/api/continent') && req.method === 'GET') {
-        const continent = req.url.split('/').pop();
-        const filteredData = destinations.filter((destination) => destination.continent.toLowerCase() === continent.toLowerCase());
-        sendJSONResponse(res, 200, filteredData);
+        const { body } = await sendFilteredData(req);
+        sendJSONResponse(res, 200, body);
+    } else if (req.url.startsWith('/api/country') && req.method === 'GET') {
+        const { body } = await sendFilteredData(req);
+        sendJSONResponse(res, 200, body);
     } else {
         res.setHeader('Content-Type', 'application/json');
         sendJSONResponse(res, 404, {
