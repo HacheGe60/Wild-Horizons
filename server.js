@@ -9,7 +9,11 @@ const PORT = 8000;
 const server = http.createServer(async (req, res) => {
     const destinations = await getDataFromDB();
 
-    if (req.url === '/api' && req.method === 'GET') {
+    const urlObj = new URL(req.url, `http://${req.headers.host}`);
+    console.log(urlObj);
+    const queryObj = Object.fromEntries(urlObj.searchParams);
+
+    if (urlObj.pathname === '/api' && req.method === 'GET') {
         sendJSONResponse(res, 200, destinations);
     } else if (req.url.startsWith('/api/continent') && req.method === 'GET') {
         const { body } = await sendFilteredData(req);
